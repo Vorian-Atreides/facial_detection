@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-
+#set(OpenCV_STATIC ON)
 set(AppName FacialDetection)
 
 project(${AppName})

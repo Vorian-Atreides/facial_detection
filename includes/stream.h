@@ -16,7 +16,7 @@ class Stream
     Stream(int device);
     Stream(std::string const &fileName);
     ~Stream();
-    void run(Detector &detector, Renderer const &renderer);
+    void run(Detector &catDetector, Detector &humanDetector, Detector &otherDetector, Renderer const &renderer);
     bool isOpen() const;
 };
 

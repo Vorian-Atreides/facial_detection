@@ -32,10 +32,12 @@ int main(int argc, char **argv)
     stream = Stream(fileStream);
   }
 
-  Detector detector("lbpcascade_frontalface.xml");
+  Detector humanDetector("lbpcascade_frontalface.xml");
+  Detector catDetector("lbpcascade_frontalcatface.xml");
+  Detector otherDetector("lbpcascade_profileface.xml");
   Renderer renderer;
 
-  if (!detector.isLoaded()) {
+  if (!humanDetector.isLoaded() || !catDetector.isLoaded() || !otherDetector.isLoaded()) {
     std::cerr << "Couldn't find the configuration file." << std::endl;
     return -1;
   }
@@ -45,6 +47,6 @@ int main(int argc, char **argv)
   }
 
   srand(time(NULL));
-  stream.run(detector, renderer);
+  stream.run(catDetector, humanDetector, otherDetector, renderer);
   return 0;
 }

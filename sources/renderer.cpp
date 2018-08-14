@@ -4,34 +4,31 @@
 
 Renderer::Renderer()
 {
-  God arr[] = {
-    God("Ma'at", cv::Scalar(221,221,221)),
-    God("Ash", cv::Scalar(221,221,221)),
-    God("Babi", cv::Scalar(221,221,221)),
-    God("Seth", cv::Scalar(187,221,255)),
-    God("Hatmehit", cv::Scalar(238,238,187)),
-    God("Nut", cv::Scalar(238,238,187)),
-    God("Aten", cv::Scalar(238,238,187)),
-    God("Hapi", cv::Scalar(255,204,204)),
-    God("Imhotep", cv::Scalar(255,204,204)),
-    God("Anubis", cv::Scalar(255,204,204)),
-    God("Maftet", cv::Scalar(221,187,255)),
-    God("Bastet", cv::Scalar(221,187,255)),
-    God("Serqet", cv::Scalar(221,187,255)),
-    God("Hathor", cv::Scalar(221,187,255)),
-    God("Anuket", cv::Scalar(221,187,255)),
-    God("Khepry", cv::Scalar(221,187,255)),
-    God("Aker", cv::Scalar(221,187,255)),
-    God("Atum", cv::Scalar(221,187,255)),
-    God("Apis", cv::Scalar(221,187,255))
-  };
-  std::vector<God> vec(arr, arr + sizeof(arr) / sizeof(arr[0]));
-  this->gods = vec;
+  // God cats[] = {
+  //   God("Seth", cv::Scalar(187,221,255)),
+  //   God("Sekhmet", cv::Scalar(187,221,255)),
+  //   God("Anubis", cv::Scalar(255,204,204)),
+  //   God("Bastet", cv::Scalar(221,187,255)),
+  // };
+  // God humans[] = {
+  //   God("Ma'at", cv::Scalar(221,221,221)),
+  //   God("Nut", cv::Scalar(238,238,187)),
+  //   God("Aten", cv::Scalar(238,238,187)),
+  //   God("Hatmehyt", cv::Scalar(238,238,187)),
+  // };
+  // God others[] = {
+  //   God("Atum", cv::Scalar(221,187,255)),
+  //   God("Neith", cv::Scalar(221,187,255)),
+  //   God("Khonsou", cv::Scalar(221,187,255)),
+  //   God("Bes", cv::Scalar(221,187,255)),
+  // };
+  // std::vector<God> vec(arr, arr + sizeof(arr) / sizeof(arr[0]));
+  // this->gods = vec;
 }
 
-void Renderer::render(cv::Mat &frame, std::vector<cv::Rect> const &faces) const {
-  int godId = rand() % this->gods.size();
-  God const &god = this->gods[godId];
+void Renderer::render(cv::Mat &frame, std::vector<cv::Rect> const &faces, std::vector<God> const &gods) const {
+  int godId = rand() % gods.size();
+  God const &god = gods[godId];
   // cv::Scalar color(0, 0, 255);
   for (int i = 0; i < faces.size(); i++)
   {

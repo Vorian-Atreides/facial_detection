@@ -6,12 +6,12 @@
 
 class Renderer
 {
-  private:
-    std::vector<God> gods;
+  // private:
+    // std::vector<God> gods;
 
   public:
     Renderer();
-    void render(cv::Mat &frame, std::vector<cv::Rect> const &faces) const;
+    void render(cv::Mat &frame, std::vector<cv::Rect> const &faces, std::vector<God> const &gods) const;
 };
 
 #endif
